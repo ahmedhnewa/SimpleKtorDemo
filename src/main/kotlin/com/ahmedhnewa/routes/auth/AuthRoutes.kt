@@ -56,7 +56,7 @@ class AuthRoutes(
         if (userData.validate(call))  {
             return@post
         }
-        if () {
+        if (!Pattern.compile(Constants.PATTERNS.PHONE_NUMBER).matcher(phoneNumber).matches()) {
             call.respond(HttpStatusCode.BadRequest, "Please enter a valid phone number.")
             return@post
         }
@@ -67,7 +67,7 @@ class AuthRoutes(
             salt = saltedHash.salt,
             accountVerification = VerificationToken.generate(),
             data = UserData(
-                firstName, lastName, phoneNumber
+                firstName, lastName, phoneNumber, address, city
             )
         )
         val isEmailExists = userDataSource.getUserByEmail(authRequest.email) != null

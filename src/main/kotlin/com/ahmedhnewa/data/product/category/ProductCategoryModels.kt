@@ -29,7 +29,8 @@ data class ProductCategory(
 /*
 * Use toListOf() { // create the instance of the converted list for every item }
 * */
-@Deprecated("Use toListOf() { // create the instance of the converted list for every item }")
+//@Deprecated("Use toListOf() { // create the instance of the converted list for every item }")
+@Deprecated("Use map() { // create the instance of the converted list for every item } instead")
 fun List<ProductCategory>.toResponse(): List<ProductCategoryResponse> {
     val productCategoriesResponse = mutableListOf<ProductCategoryResponse>()
     this.forEach {

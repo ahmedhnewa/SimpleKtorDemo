@@ -109,7 +109,7 @@ class ProductCategoryRoutes (
             }
             val isDeleteSuccess = productCategoryDataSource.deleteCategory(productCategoryId)
             if (!isDeleteSuccess) {
-                call.respond(HttpStatusCode.BadRequest, "Error while delete the data in the database")
+                call.respond(HttpStatusCode.InternalServerError, "Error while delete the data in the database")
                 return@delete
             }
             call.respond(HttpStatusCode.NoContent, "Data has been deleted successfully")

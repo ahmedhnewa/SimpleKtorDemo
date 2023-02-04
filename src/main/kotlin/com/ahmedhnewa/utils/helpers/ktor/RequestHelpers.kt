@@ -49,7 +49,7 @@ suspend fun ApplicationCall.requireId(
 }
 
 
-suspend fun ApplicationCall.getServerUrl(): String {
+fun ApplicationCall.getServerUrl(): String {
     val connectionPoint = this.request.local
     return "${connectionPoint.scheme}://${connectionPoint.serverHost}:${connectionPoint.serverPort}"
 }
